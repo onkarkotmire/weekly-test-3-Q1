@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-container {
+            border: 2px solid black;
+            width: 60vw;
+            height: 50vh;
+            margin-top: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 7%;
+        }
+        #counter_heading{
+            font-size: 60px;
+            color: black;
+        }
+        #value_heading{
+            font-size: 65px;
+            color: black;
+        }
+        .button-container{
+            width: 100%;
+            height: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5%;
+        }
+        button{
+            border-radius: 6px;
+            color: black;
+            padding: 5px;
+            width: 22%;
+            height: 65%;
+            background-color: white;
+            font-weight: bold;
+        }
+    #increment_button{
+        border-color: blue;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+      <div class="heading"><h1 id="counter_heading">Counter</h1></div>
+      <div class="incre-decre-value"><h1 id="value_heading">0</h1></div>
+      <div class="button-container">
+        <button id="decrement_button">DECREASE</button>
+        <button id="reset_button">RESET</button>
+        <button id="increment_button" >INCREASE</button>
+      </div>
+    </div>
+    <script>
+       const decrement_button = document.getElementById("decrement_button");
+       const reset_button = document.getElementById("reset_button");
+       const increment_button = document.getElementById("increment_button");
+       let value = document.getElementById("value_heading");
+
+       decrement_button.addEventListener("click",decrementfun);
+        let counter1 = 0;
+       function decrementfun(){
+         value.innerText -= 1;
+         if(value.innerText < 0){
+            value.style.color = "red";
+         }else if(value.innerText == 0){
+            value.style.color = "black"
+         }
+       }
+
+       increment_button.addEventListener("click",incrementfun);
+        let counter2 = 0;
+       function incrementfun(){
+         value.innerText = parseInt(value.innerText) +  1;
+         if(value.innerText > 0){
+            value.style.color = "green";
+         }else if(value.innerText == 0){
+            value.style.color = "black"
+         }
+       }
+
+       reset_button.addEventListener("click",resetfun);
+       function resetfun(){
+        value.innerText = 0;
+        value.style.color = "black";
+       }
+    </script>
+</body>
+
+</html>
